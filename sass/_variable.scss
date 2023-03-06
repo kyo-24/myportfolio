@@ -1,0 +1,25 @@
+// 色
+$color-main: #333;
+
+
+// フォント
+$font-family :'Kiwi Maru', sans-serif;
+
+
+// インナー幅
+$layout-width-inner: 1200px;
+
+
+
+// メディアクエリー
+$breakpoints: (
+//キー : 値
+  'sp': "(max-width: 767px)", 
+  'pc': "(min-width: 768px)"
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

@@ -1,0 +1,63 @@
+@use "variable" as var;
+
+#about {
+  position: relative;
+}
+.about-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include var.mq('sp') {
+    flex-direction: column;
+  }
+}
+.about-left {
+  width: 35%;
+  border: 1px solid rgba(87, 87, 87, 0.7);
+  border-radius: 10px;
+  @include var.mq('sp') {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+}
+.about-left img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.about-right {
+  width: 60%;
+  padding: 0 40px;
+  @include var.mq('sp') {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+
+.about-bg {
+  font-size: 100px;
+  color: rgba(87, 87, 87, 0.2);
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+}
+
+.about-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  dt {
+    width: 100px;
+  }
+  dd {
+    width: calc(100% - 100px);
+
+  }
+  dt, dd {
+    &:not(:first-of-type) {
+      margin-top: 5px;
+    }
+  }
+}
+

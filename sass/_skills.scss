@@ -1,0 +1,188 @@
+@use "variable" as var;
+
+#skills {
+  position: relative;
+}
+.skills-wrap {
+  display: flex;
+  justify-content: space-between;
+  @include var.mq('sp') {
+    flex-direction: column;
+  }
+}
+
+.js-open-button {
+  color: inherit;
+  width: 32%;
+  display: block;
+  @include var.mq('sp') {
+    width: 80%;
+    margin: 0 auto 40px;
+  }
+}
+
+.skill-card {
+  height: 350px;
+  text-align: center;
+  background-color: #fff;
+  padding: 10%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: transform 0.3s ease 0s;
+  @include var.mq('sp') {
+    height: auto;
+    padding: 10%;
+  }
+  &:hover {
+    transform: scale(1.05);
+    @include var.mq('sp') {
+      transform: none;
+    }
+  }
+  img {
+    width: 400px;
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    @include var.mq('sp') {
+      height: auto;
+      aspect-ratio: (400 / 220);
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  }
+}
+.skill-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.skill-bg {
+  font-size: 100px;
+  color: rgba(87, 87, 87, 0.2);
+  position: absolute;
+  bottom: 0px;
+  right: 40px;
+}
+
+
+
+
+// モーダル
+.modal-contact {
+  position: fixed;
+  z-index: 501;
+  width: 800px;
+  max-width: calc(100% - 24px * 2);
+  max-height: calc(100% - 24px * 2);
+  height: 500px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(#000, 0.16);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 60px;
+  color: var.$color-main;
+  display: none;
+
+  @include var.mq('sp') {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+.modal-contact_head {
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 20px;
+  position: relative;
+  @include var.mq('sp') {
+    font-size: 24px;
+  }
+
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #888;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.modal-contact_content {
+  margin-top: 40px;
+  height: calc(100% - 88px - 108px);
+  overflow: auto;
+}
+.modal-contact_sub-head {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 20px;
+  position: relative;
+  @include var.mq('sp') {
+    font-size: 18px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: blue;
+  }
+
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+}
+.modal-contact_text {
+  margin-top: 16px;
+  line-height: (24 / 16);
+  padding-left: 20px;
+}
+
+.modal-contact_button {
+  margin-top: 60px;
+  text-align: center;
+  @include var.mq('sp') {
+    margin-top: 30px;
+  }
+  a {
+    display: inline-block;
+    width: 176px;
+    padding: 16px 0;
+    text-align: center;
+    color: #fff;
+    background-color: var.$color-main;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(#000, 0.16);
+  }
+}
+.modal-contact_icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  right: -20px;
+}
+.modal-contact_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(#000, 0.6);
+  z-index: 500;
+  display: none;
+}

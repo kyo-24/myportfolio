@@ -1,0 +1,46 @@
+@use "variable" as var;
+
+footer {
+  background-color: #646464;
+  padding: 20px 0 10px;
+  @include var.mq('sp') {
+    padding: 20px 0;
+  }
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  @include var.mq('sp') {
+    display: none;
+  }
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-between;
+  li {
+    & + li {
+      margin-left: 40px;
+    }
+    a {
+      color: #fff;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        opacity: 0.6;
+        text-decoration: underline;
+        color: var.$color-main;
+      }
+    }
+  }
+}
+
+.copy {
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+  @include var.mq('sp') {
+    margin-top: 0;
+  }
+}
